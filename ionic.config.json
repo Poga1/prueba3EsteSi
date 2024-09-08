@@ -1,0 +1,7 @@
+{
+  "name": "restSoft",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
