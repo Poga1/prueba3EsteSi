@@ -1,0 +1,10 @@
+ion-badge {
+  position: absolute;
+  height: 2.5vh;
+  width: 2.5vh;
+  border-radius: 50%;
+  font-weight: 300;
+  font-size: medium;
+  --background: var(--ion-color-primary);
+  color: var(--ion-color-tertiary);
+}

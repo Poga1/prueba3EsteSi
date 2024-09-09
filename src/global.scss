@@ -12,7 +12,6 @@
 @font-face {
   font-family: OverMuchRegular;
   src: url("./assets/font/overmch.ttf");
-  
 }
 
 //Para leectura
@@ -24,6 +23,19 @@
 
   --ion-font-family: OverMuchRegular;
 }
+
+.custom-modal {
+  &::part(backdrop) {
+    --backdrop-opacity: 0.5;
+  }
+
+  &::part(content) {
+    margin: 15%;
+    --height: 50%;
+  }
+  --border-radius: 8px;
+}
+
 /* Core CSS required for Ionic components to work properly */
 @import "@ionic/angular/css/core.css";
 

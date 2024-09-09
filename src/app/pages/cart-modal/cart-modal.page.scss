@@ -1,0 +1,33 @@
+ion-footer ion-toolbar {
+  padding-bottom: 0px;
+}
+.logo {
+  width: 55px;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-content {
+  --background: var(--ion-color-primary);
+}
+
+ion-toolbar {
+  --background: transparent;
+}
+
+ion-list {
+  background: transparent;
+}
+
+ion-item {
+  --background: var(--ion-color-dark);
+  border-radius: 6px;
+  margin-bottom: 20px;
+  color: var(--ion-color-secondary);
+
+  p {
+    opacity: 0.5;
+    font-size: 16px;
+    color: var(--ion-color-tertiary);
+  }
+}

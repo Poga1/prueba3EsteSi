@@ -21,13 +21,21 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'details/:id',
+        path: 'products/:id',
         loadChildren: () =>
           import('../details/details.module').then((m) => m.DetailsPageModule),
       },
       {
         path: 'menu',
-        loadChildren: () => import('../menu/menu.module').then( m => m.MenuPageModule)
+        loadChildren: () =>
+          import('../menu/menu.module').then((m) => m.MenuPageModule),
+      },
+      {
+        path: 'cart',
+        loadChildren: () =>
+          import('../cart-modal/cart-modal.module').then(
+            (m) => m.CartModalPageModule
+          ),
       },
     ],
   },

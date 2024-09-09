@@ -7,17 +7,24 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/tabs/tabs.module').then((m) => m.TabsPageModule),
   },
-  
+
   {
     path: '',
-    loadChildren: () => import('./pages/intro/intro.module').then( m => m.IntroPageModule)
+    loadChildren: () =>
+      import('./pages/intro/intro.module').then((m) => m.IntroPageModule),
   },
   {
     path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () =>
+      import('./pages/login/login.module').then((m) => m.LoginPageModule),
   },
- 
-  
+  {
+    path: 'filter-modal',
+    loadChildren: () =>
+      import('./pages/filter-modal/filter-modal.module').then(
+        (m) => m.FilterModalPageModule
+      ),
+  },
 ];
 
 @NgModule({

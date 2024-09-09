@@ -20,14 +20,14 @@
   <form [formGroup]="formularioLogin" class="login" (ngSubmit)="onSubmit()">
     <ion-item lines="none">
       <ion-input
-        [(ngModel)]="email"
+        viewToModelUpdate="email"
         formControlName="email"
         label="Email"
         labelPlacement="floating"
       ></ion-input> </ion-item
     ><ion-item lines="none">
       <ion-input
-        (ngModel)="pw"
+        viewToModelUpdate="pw"
         formControlName="pw"
         [type]="showPassword ? 'text' : 'password'"
         label="Contraseña"

@@ -1,0 +1,44 @@
+ion-grid {
+  --ion-grid-padding-sm: 20px;
+  --ion-grid-padding-md: 30px;
+  --ion-grid-padding-lg: 40px;
+  --ion-grid-padding-xl: 100px;
+}
+.logo {
+  width: 55px;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-content {
+  --background: var(--ion-color-primary);
+}
+
+//definir el elemento img para que cubra todo el fondo
+.product-image {
+  width: 100%;
+  height: 200px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+ion-card:hover {
+  transform: scale(1.03);
+  transition: 0.3s ease-out;
+}
+
+ion-card {
+  background-color: var(--ion-color-tertiary);
+  transform: scale(1);
+  transition: 0.3s ease-out;
+}
+
+ion-fab-button {
+  --color: var(--ion-color-tertiary);
+  border: 3px groove lightblue;
+  border-radius: 50%;
+}
+b,
+p {
+  color: var(--ion-color-primary);
+}

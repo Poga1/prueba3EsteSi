@@ -1,0 +1,53 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon
+          slot="icon-only"
+          name="arrow-back"
+          color="secondary"
+        ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center"
+      ><img src="./assets/imgs/logo.png" class="logo" alt=""
+    /></ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" color="secondary"> Help </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-list *ngIf="cart.length > 0">
+    <ion-item *ngFor="let item of cart" lines="none">
+      <ion-text color="primary" slot="start">{{item.amount}}x </ion-text>
+      <ion-label color="primary">{{item.title}}</ion-label>
+      <ion-text color="primay" slot="end">
+        {{item.price | currency:'USD'}}
+      </ion-text>
+    </ion-item>
+  </ion-list>
+
+  <ion-text color="tertiary" *ngIf="cart.length == 0" class="ion-text-center">
+    <h2>El carro esta vacio, LLENALO!</h2>
+  </ion-text>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar
+    [color]="cart.length > 0 ? 'tertiary' : 'secondary'"
+    class="ion-text-center"
+  >
+    <ion-button
+      (click)="dismiss()"
+      fill="clear"
+      color="light"
+      *ngIf="cart.length == 0"
+    >
+      <h3>COMPRA al toque longi!</h3>
+    </ion-button>
+    <ion-text *ngIf="cart.length > 0">
+      <h3>Total: {{cartSum | currency:'USD'}}</h3>
+    </ion-text>
+  </ion-toolbar>
+</ion-footer>

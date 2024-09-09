@@ -52,7 +52,7 @@ export class LoginPage implements OnInit {
     if (formValues.pw != '') {
       console.log(this.formularioLogin.value);
 
-      this.router.navigate(['/tabs']);
+      this.router.navigate(['/tabs/home']);
     } else {
       this.AlertaFormulario();
       console.log(this.formularioLogin.value);
