@@ -1,0 +1,59 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="/"
+        color="secondary"
+        text=""
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center"
+      ><img src="./assets/imgs/logo.png" class="logo" alt=""
+    /></ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" color="secondary"> Help </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true" scrollY="false">
+  <form [formGroup]="formularioLogin" class="login" (ngSubmit)="onSubmit()">
+    <ion-item lines="none">
+      <ion-input
+        [(ngModel)]="email"
+        formControlName="email"
+        label="Email"
+        labelPlacement="floating"
+      ></ion-input> </ion-item
+    ><ion-item lines="none">
+      <ion-input
+        (ngModel)="pw"
+        formControlName="pw"
+        [type]="showPassword ? 'text' : 'password'"
+        label="Contraseña"
+        labelPlacement="floating"
+      ></ion-input>
+      <p class="pw-toggle" slot="end" (click)="showPassword = !showPassword">
+        {{ showPassword ? 'HIDE' : 'SHOW'}}
+      </p>
+    </ion-item>
+
+    <ion-button
+      class="login-btn"
+      [class.login-valid]="email != '' && pw != ''"
+      (click)="onSubmit()"
+      expand="block"
+    >
+      Sign In
+    </ion-button>
+    <ion-button
+      expand="full"
+      fill="clear"
+      size="small"
+      color="light"
+      class="ion-margin-top"
+    >
+      Recover Password
+    </ion-button>
+  </form>
+</ion-content>

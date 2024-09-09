@@ -1,0 +1,50 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <img src="../../../assets/imgs/logo.png" class="logo" alt="" />
+    <ion-buttons slot="end">
+      <ion-button fill="clear" color="secondary">Ayuda </ion-button
+      ><ion-button fill="clear" color="secondary">Privacidad </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true" scrollY="false">
+  <swiper-container
+    #swiper
+    id="introswiper"
+    pagination="true"
+    style="
+      --swiper-pagination-color: var(--ion-color-tertiary);
+      --swiper-pagination: calc(80px + var(--ion-safe-area-bottom) !important;);
+    "
+    speed="600"
+    parallax="true"
+    pagination-clickable=""
+  >
+    <div
+      slot="container-start"
+      class="parallax-bg"
+      #bg
+      data-swiper-parallax="-53%"
+    ></div>
+    <swiper-slide class="swiper-slide"
+      ><div data-swiper-parallax="-300"><h1>Bienvenido!</h1></div>
+      <div data-swiper-parallax="-1000">
+        <p>Proyecto Semestral App Moviles</p>
+      </div></swiper-slide
+    >
+    <swiper-slide class="swiper-slide" *ngFor="let page of pages">
+      <div class="intro-page"></div>
+      <img [src]="page.img" alt="image" />
+      <h1>{{page.title}}</h1>
+      <p>{{page.text}}</p>
+    </swiper-slide>
+  </swiper-container>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar> </ion-toolbar>
+  <ion-button expand="full"  shape="round" routerLink="/login" >
+    SIGN IN
+  </ion-button>
+</ion-footer>

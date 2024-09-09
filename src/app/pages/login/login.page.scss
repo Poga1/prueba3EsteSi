@@ -1,0 +1,46 @@
+.logo {
+  width: 55px;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-content {
+  --background: var(--ion-color-light);
+}
+
+ion-toolbar {
+  --background: transparent;
+}
+
+.login {
+  padding: 50px;
+  margin-top: 55%;
+
+  ion-item {
+    --background: var(--ion-color-dark);
+    border-radius: 6px;
+    margin-bottom: 20px;
+    color: var(--ion-color-primary);
+
+    p {
+      opacity: 0.5;
+      font-size: 16px;
+      color: var(--ion-color-tertiary);
+    }
+  }
+
+  .login-btn {
+    border: 1px solid var(--ion-color-primary);
+    border-radius: 6px;
+    --background: var(--ion-color-dark);
+  }
+
+  .login-valid {
+    --background: var(--ion-color-light);
+  }
+
+  p {
+    opacity: 0.8;
+    font-size: 19px;
+  }
+}

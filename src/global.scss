@@ -8,7 +8,22 @@
  * For more information on global stylesheets, visit the documentation:
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
+//Para titulos
+@font-face {
+  font-family: OverMuchRegular;
+  src: url("./assets/font/overmch.ttf");
+  
+}
 
+//Para leectura
+//TODO
+:root {
+  --ion-color-primary: rgb(33, 67, 143);
+  --ion-color-secondary: rgb(105, 186, 247);
+  --ion-color-tertiary: rgb(239, 153, 27);
+
+  --ion-font-family: OverMuchRegular;
+}
 /* Core CSS required for Ionic components to work properly */
 @import "@ionic/angular/css/core.css";
 
