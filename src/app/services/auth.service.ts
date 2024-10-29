@@ -6,6 +6,7 @@ import {
   createUserWithEmailAndPassword,
   signOut,
 } from '@angular/fire/auth';
+import { RouterLink } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
@@ -41,5 +42,6 @@ export class AuthService {
 
   logout() {
     signOut(this.auth);
+   
   }
 }

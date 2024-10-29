@@ -1,15 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Router } from '@angular/router';
-import { LoadingController, AlertController } from '@ionic/angular';
-import {
-  Camera,
-  CameraResultType,
-  CameraSource,
-  CameraPermissionType,
-} from '@capacitor/camera';
-import { AvatarService } from 'src/app/services/avatar.service';
-import { AuthService } from 'src/app/services/auth.service';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { AlertController, LoadingController } from '@ionic/angular';
+import { AuthService } from '../../services/auth.service';
+import { AvatarService } from '../../services/avatar.service';
 
 @Component({
   selector: 'app-menu',
@@ -17,7 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./menu.page.scss'],
 })
 export class MenuPage implements OnInit {
-  profile: any;
+  profile = null;
 
   constructor(
     private avatarService: AvatarService,
@@ -30,30 +24,13 @@ export class MenuPage implements OnInit {
       this.profile = data;
     });
   }
-
   ngOnInit(): void {
-    this.requestCameraPermissions();
-  }
-
-  async requestCameraPermissions() {
-    const permissions = await Camera.requestPermissions({
-      permissions: ['camera', 'photos'],
-    });
-
-    if (!permissions.camera || !permissions.photos) {
-      const alert = await this.alertController.create({
-        header: 'Permissions required',
-        message:
-          'Camera and Photos permissions are required to use this feature.',
-        buttons: ['OK'],
-      });
-      await alert.present();
-    }
+    throw new Error('Method not implemented.');
   }
 
   async logout() {
     await this.authService.logout();
-    this.router.navigateByUrl('/', { replaceUrl: true });
+    this.router.navigateByUrl('/login', { replaceUrl: true });
   }
 
   async changeImage() {
@@ -61,8 +38,7 @@ export class MenuPage implements OnInit {
       quality: 90,
       allowEditing: false,
       resultType: CameraResultType.Base64,
-      source: CameraSource.Photos, // Camera, Photos or Prompt!
-      saveToGallery: true,
+      source: CameraSource.Prompt, // Camera, Photos or Prompt!
     });
 
     if (image) {
