@@ -17,43 +17,43 @@
 </ion-header>
 
 <ion-content fullscreen="true" scrollY="false">
-  <form [formGroup]="formularioLogin" class="login" (ngSubmit)="onSubmit()">
-    <ion-item lines="none">
-      <ion-input
-        viewToModelUpdate="email"
-        formControlName="email"
-        label="Email"
-        labelPlacement="floating"
-      ></ion-input> </ion-item
-    ><ion-item lines="none">
-      <ion-input
-        viewToModelUpdate="pw"
-        formControlName="pw"
-        [type]="showPassword ? 'text' : 'password'"
-        label="Contraseña"
-        labelPlacement="floating"
-      ></ion-input>
-      <p class="pw-toggle" slot="end" (click)="showPassword = !showPassword">
-        {{ showPassword ? 'HIDE' : 'SHOW'}}
-      </p>
-    </ion-item>
+  <div class="login">
+    <form (ngSubmit)="login()" [formGroup]="credentials">
+      <ion-item fill="solid" class="ion-margin-bottom">
+        <ion-input
+          type="email"
+          placeholder="Email"
+          formControlName="email"
+        ></ion-input>
+        <ion-note
+          slot="error"
+          *ngIf="(email.dirty || email.touched) && email.errors"
+          >Email is invalid</ion-note
+        >
+      </ion-item>
+      <ion-item fill="solid" class="ion-margin-bottom">
+        <ion-input
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+        ></ion-input>
+        <ion-note
+          slot="error"
+          *ngIf="(password.dirty || password.touched) && password.errors"
+          >Password needs to be 6 characters</ion-note
+        >
+      </ion-item>
 
-    <ion-button
-      class="login-btn"
-      [class.login-valid]="email != '' && pw != ''"
-      (click)="onSubmit()"
-      expand="block"
-    >
-      Sign In
-    </ion-button>
-    <ion-button
-      expand="full"
-      fill="clear"
-      size="small"
-      color="light"
-      class="ion-margin-top"
-    >
-      Recover Password
-    </ion-button>
-  </form>
+      <ion-button type="submit" expand="block" [disabled]="!credentials.valid"
+        >Log in</ion-button
+      >
+      <ion-button
+        type="button"
+        expand="block"
+        color="secondary"
+        (click)="register()"
+        >Create account</ion-button
+      >
+    </form>
+  </div>
 </ion-content>

@@ -26,9 +26,9 @@ const routes: Routes = [
           import('../details/details.module').then((m) => m.DetailsPageModule),
       },
       {
-        path: 'menu',
+        path: 'perfil',
         loadChildren: () =>
-          import('../menu/menu.module').then((m) => m.MenuPageModule),
+          import('../perfil/menu.module').then((m) => m.MenuPageModule),
       },
       {
         path: 'cart',

@@ -1,0 +1,50 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/home" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center"
+      ><img src="./assets/imgs/logo.png" class="logo" alt=""
+    /></ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear"> Help </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title> Mi Cuenta </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="preview">
+    <ion-avatar (click)="changeImage()">
+      <img
+        *ngIf="profile?.imageUrl; else placheolder_avatar;"
+        [src]="profile.imageUrl"
+      />
+      <ng-template #placheolder_avatar>
+        <div class="fallback">
+          <p>Select avatar</p>
+        </div>
+      </ng-template>
+    </ion-avatar>
+  </div>
+  <div>
+    <ion-button
+      (click)="requestCameraPermissions()"
+      expand="block"
+      fill="clear"
+      shape="round"
+    >
+      Click me
+    </ion-button>
+  </div>
+</ion-content>

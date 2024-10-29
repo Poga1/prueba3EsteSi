@@ -5,8 +5,10 @@ import {
   FormControl,
   Validators,
   FormBuilder,
+  ReactiveFormsModule,
 } from '@angular/forms';
-import { AlertController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -15,59 +17,66 @@ import { AlertController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
   showPassword = false;
-  email = '';
-  pw = '';
 
-  formularioLogin: FormGroup;
+  credentials: FormGroup;
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private alertCtrl: AlertController
-  ) {
-    this.createForm();
+    private alertController: AlertController,
+    private loadingController: LoadingController,
+    private authService: AuthService
+  ) {}
+  // Easy access for form fields
+  get email() {
+    return this.credentials.get('email');
   }
 
-  createForm() {
-    this.formularioLogin = this.fb.group({
-      email: new FormControl('', {
-        validators: [
-          Validators.maxLength(50),
-          Validators.minLength(3),
-          Validators.required,
-        ],
-      }),
-      pw: new FormControl('', {
-        validators: [
-          Validators.maxLength(50),
-          Validators.minLength(3),
-          Validators.required,
-        ],
-      }),
+  get password() {
+    return this.credentials.get('password');
+  }
+
+  ngOnInit() {
+    this.credentials = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
 
-  onSubmit() {
-    const formValues = this.formularioLogin.value;
-    if (formValues.pw != '') {
-      console.log(this.formularioLogin.value);
+  async register() {
+    const loading = await this.loadingController.create();
+    await loading.present();
 
-      this.router.navigate(['/tabs/home']);
+    const user = await this.authService.register(this.credentials.value);
+    await loading.dismiss();
+
+    if (user) {
+      this.router.navigateByUrl('/tabs/home', { replaceUrl: true });
     } else {
-      this.AlertaFormulario();
-      console.log(this.formularioLogin.value);
+      this.showAlert('Registro Fallido', 'Intenta de nuevo');
     }
   }
 
-  ngOnInit() {}
+  async login() {
+    const loading = await this.loadingController.create();
+    await loading.present();
 
-  async AlertaFormulario() {
-    const alert = await this.alertCtrl.create({
-      header: 'Inicio de Sesion Fallido',
-      message: 'Ingresa mail y/o contraseña',
+    const user = await this.authService.login(this.credentials.value);
+    await loading.dismiss();
+
+    if (user) {
+      this.router.navigateByUrl('/tabs/home', { replaceUrl: true });
+    } else {
+      this.showAlert('Inicio de Sesión Fallido', 'Intenta de Nuevo');
+    }
+  }
+
+  async showAlert(header, message) {
+    const alert = await this.alertController.create({
+      header,
+      message,
       buttons: ['OK'],
     });
-
     await alert.present();
   }
 }

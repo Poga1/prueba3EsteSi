@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Firestore } from '@angular/fire/firestore';
 import { register } from 'swiper/element/bundle';
 register();
 @Component({
@@ -7,5 +8,6 @@ register();
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+
   constructor() {}
 }
