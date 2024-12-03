@@ -11,7 +11,7 @@
       ><img src="./assets/imgs/logo.png" class="logo" alt=""
     /></ion-title>
     <ion-buttons slot="end">
-      <ion-button fill="clear" color="secondary"> Help </ion-button>
+      <ion-button fill="clear" color="secondary"> Ayuda </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -28,7 +28,7 @@
         <ion-note
           slot="error"
           *ngIf="(email.dirty || email.touched) && email.errors"
-          >Email is invalid</ion-note
+          >Email invalido</ion-note
         >
       </ion-item>
       <ion-item fill="solid" class="ion-margin-bottom">
@@ -40,20 +40,27 @@
         <ion-note
           slot="error"
           *ngIf="(password.dirty || password.touched) && password.errors"
-          >Password needs to be 6 characters</ion-note
+          >La contraseña debe tener al menos 6 caracteres</ion-note
         >
       </ion-item>
 
       <ion-button type="submit" expand="block" [disabled]="!credentials.valid"
-        >Log in</ion-button
+        >Iniciar Sesion</ion-button
       >
       <ion-button
         type="button"
         expand="block"
         color="secondary"
         (click)="register()"
-        >Create account</ion-button
+        >Crear cuenta</ion-button
       >
+
+      <ion-button type="button" expand="block" color="tertiary"
+      (click)="resetPassword()">
+        Restablecer contraseña
+      </ion-button>
+
+
     </form>
   </div>
 </ion-content>

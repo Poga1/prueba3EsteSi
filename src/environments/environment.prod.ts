@@ -1,11 +1,11 @@
 export const environment = {
   production: true,
   firebase: {
-    apiKey: 'AIzaSyA9R4GPBLST1GeWTfOagxEsBruDfEMCkBE',
-    authDomain: 'tavfb-d3f8a.firebaseapp.com',
-    projectId: 'tavfb-d3f8a',
-    storageBucket: 'tavfb-d3f8a.appspot.com',
-    messagingSenderId: '897087623416',
-    appId: '1:897087623416:web:56d8a345d745a70d7d2b0d',
+    apiKey: 'AIzaSyAuzvAS4mZ_KdMaP3cvBXSJqReVvEDNazA',
+    authDomain: 'prueba3-631b4.firebaseapp.com',
+    projectId: 'prueba3-631b4',
+    storageBucket: 'prueba3-631b4.firebasestorage.app',
+    messagingSenderId: '606869499090',
+    appId: '1:606869499090:android:12b3764e9e238a4459910b',
   },
 };

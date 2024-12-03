@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 import {
   Auth,
+  getAuth,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut,
@@ -10,6 +11,9 @@ import { RouterLink } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
+
+
+
 export class AuthService {
   constructor(private auth: Auth) {}
 
